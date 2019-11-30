@@ -1,0 +1,14 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: config-example
+      docker:
+        dockerfile: Dockerfile
+  local: {}
+
+deploy:
+  kubectl:
+    manifests:
+      - config.yaml
+      - deploy.yaml

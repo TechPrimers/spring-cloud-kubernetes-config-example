@@ -1,0 +1,33 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: config-example
+spec:
+  selector:
+    app: config-example
+  ports:
+    - protocol: TCP
+      port: 8080
+      nodePort: 30083
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-example
+spec:
+  selector:
+    matchLabels:
+      app: config-example
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: config-example
+    spec:
+      containers:
+        - name: config-example
+          image: config-example
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080

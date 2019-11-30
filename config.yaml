@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-example
+data:
+  application.properties: |-
+    welcome.message=Hello Youtube from app.properties
+    message=Hi from app.properties

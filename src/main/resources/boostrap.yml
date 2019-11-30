@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    kubernetes:
+      config:
+        enabled: true
+        sources:
+          - namespace: default
+            name: config-example
+      reload:
+        enabled: true
+        mode: event
+        strategy: polling
